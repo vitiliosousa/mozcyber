@@ -5,15 +5,15 @@ import { motion } from "motion/react";
 
 export default function HeroSection() {
   return (
-    <div className=" bg-cover bg-repeat bg-center h-full flex items-center justify-center  w-full flex-col text-center space-y-4 py-20 mt-20">
+    <div className="h-full flex items-center justify-center  w-full flex-col text-center space-y-4 mt-20">
       <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 1 }}
+        initial={{  opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
         viewport={{ once: true, amount: 0.2 }}
         className="py-1 px-2 text-xs bg-white text-black rounded-full"
       >
-        <p>Mozcyber Community 2025</p>
+        <p>MozCyber Community 2025</p>
       </motion.div>
       <motion.h1
         initial={{ scale: 0.95, opacity: 0 }}

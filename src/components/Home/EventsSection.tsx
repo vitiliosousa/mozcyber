@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import eventssection from "@/assets/eventssection.svg";
-import CardEvent from "@/components/CardEvent";
+import CardEvent from "@/components/Home/CardEvent";
 import hackonwednesdayevent from "@/assets/hackonwednesdayevent.svg";
 import meetthegoatevent from "@/assets/meetthegoatevent.svg";
 import nighthackevent from "@/assets/nighthackevent.svg";
@@ -11,8 +11,6 @@ import nighthackevent from "@/assets/nighthackevent.svg";
 export default function EventsSection() {
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center px-32 space-y-10 relative overflow-hidden">
-      
-      {/* Título com animação de entrada ao rolar para a view */}
       <motion.h2
         initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -23,14 +21,13 @@ export default function EventsSection() {
         Eventos da Mozcyber
       </motion.h2>
 
-      {/* Container dos Cards com animação em cascata */} 
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         className="flex items-center justify-between gap-4 w-full"
       >
-        {[ 
+        {[
           {
             image: nighthackevent,
             title: "Night Hack: First edition",
@@ -65,8 +62,6 @@ export default function EventsSection() {
           </motion.div>
         ))}
       </motion.div>
-
-      {/* Botão com leve escala ao rolar e hover */}
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -78,22 +73,13 @@ export default function EventsSection() {
       >
         Ver todos os eventos
       </motion.button>
-
-      {/* Imagem de fundo com fade suave ao aparecer */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.15 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        viewport={{ once: true }}
-        className="absolute pointer-events-none z-[-1]"
-      >
-        <Image
-          src={eventssection}
-          alt="Fundo decorativo"
-          width={1000}
-          height={1000}
-        />
-      </motion.div>
+      <Image
+        src={eventssection}
+        alt="Fundo decorativo"
+        width={1000}
+        height={1000}
+        className="absolute pointer-events-none"
+      />
     </div>
   );
 }

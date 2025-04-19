@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 
