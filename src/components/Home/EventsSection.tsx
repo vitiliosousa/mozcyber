@@ -4,13 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import eventssection from "@/assets/eventssection.svg";
 import CardEvent from "@/components/Home/CardEvent";
-import hackonwednesdayevent from "@/assets/hackonwednesdayevent.svg";
-import meetthegoatevent from "@/assets/meetthegoatevent.svg";
-import nighthackevent from "@/assets/nighthackevent.svg";
+import { events } from "@/data/events";
 
 export default function EventsSection() {
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-center px-32 space-y-10 relative overflow-hidden">
+    <div className="h-screen w-full flex flex-col items-center justify-center px-52 space-y-10 relative overflow-hidden">
       <motion.h2
         initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -27,29 +25,7 @@ export default function EventsSection() {
         viewport={{ once: true, amount: 0.2 }}
         className="flex items-center justify-between gap-4 w-full"
       >
-        {[
-          {
-            image: nighthackevent,
-            title: "Night Hack: First edition",
-            date: "5 de Abril a 10 de maio",
-            location: "ISUTC",
-            url: "/events/night-hack",
-          },
-          {
-            image: meetthegoatevent,
-            title: "Meet The Goats",
-            date: "Periodicamente",
-            location: "Online",
-            url: "/events/meet-the-goats",
-          },
-          {
-            image: hackonwednesdayevent,
-            title: "Hack On Wednesday",
-            date: "Finalizado",
-            location: "Online",
-            url: "/events/hack-on-wednesday",
-          },
-        ].map((event, index) => (
+        {events.map((event, index) => (
           <motion.div
             key={event.title}
             variants={{
