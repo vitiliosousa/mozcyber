@@ -11,36 +11,40 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { Mail, Phone, MapPin } from "lucide-react";
 import {
+  Mail,
+  Phone,
+  MapPin,
   Github,
   Instagram,
   Linkedin,
-  Youtube
-} from "lucide-react"; 
+  Youtube,
+} from "lucide-react";
 
 export default function FormSection() {
   return (
-    <div className="h-full flex items-center justify-center w-full flex-col text-center space-y-4 mt-20 px-20">
-      <div className="flex h-full items-start justify-between w-full gap-12">
-      
-        <div className="w-1/2 h-full flex flex-col space-y-6 items-start justify-start text-left">
+    <div className="h-full flex items-center justify-center w-full flex-col text-center space-y-6 mt-20 px-6 sm:px-8 md:px-16 lg:px-20">
+      <div className="flex flex-col lg:flex-row h-full items-start justify-between w-full gap-12">
+        <div className="w-full lg:w-1/2 h-full flex flex-col space-y-6 items-start justify-start text-left">
           <motion.h2
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.6 }}
             viewport={{ once: true, amount: 0.2 }}
-            className="text-3xl font-semibold bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text"
+            className="text-3xl bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text lg:text-start text-center"
           >
             Envie-nos uma mensagem
           </motion.h2>
           <motion.p
-          initial={{ x: -40, opacity: 0 }}
+            initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
             viewport={{ once: true, amount: 0.2 }}
-          className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text">Preencha o formulário e entraremos em contacto o mais breve possível. Sua mensagem é importante para nós.</motion.p>
-
+            className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text text-center sm:text-start"
+          >
+            Preencha o formulário e entraremos em contacto o mais breve
+            possível. Sua mensagem é importante para nós.
+          </motion.p>
           <motion.div
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -101,19 +105,19 @@ export default function FormSection() {
             >
               <Youtube className="w-5 h-5" />
             </a>
-            
           </motion.div>
         </div>
+
         <motion.form
-        initial={{ x: 40, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            viewport={{ once: true, amount: 0.2 }}
+          initial={{ x: 40, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
           action=""
-          className="flex flex-col space-y-4 w-1/2 bg-zinc-900 p-6 rounded-2xl"
+          className="flex flex-col space-y-4 w-full lg:w-1/2 bg-zinc-900 p-6 rounded-2xl"
         >
-          <div className="flex gap-2">
-            <div className="w-1/2 flex flex-col items-start text-sm space-y-2">
+          <div className="flex gap-4 flex-col sm:flex-row">
+            <div className="w-full sm:w-1/2 flex flex-col items-start text-sm space-y-2">
               <label className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text">
                 Nome Completo
               </label>
@@ -123,7 +127,7 @@ export default function FormSection() {
                 className="h-12"
               />
             </div>
-            <div className="w-1/2 flex flex-col items-start text-sm space-y-2">
+            <div className="w-full sm:w-1/2 flex flex-col items-start text-sm space-y-2">
               <label className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text">
                 Email
               </label>

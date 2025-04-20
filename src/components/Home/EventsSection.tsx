@@ -19,7 +19,7 @@ export default function EventsSection() {
         viewport={{ once: true, amount: 0.3 }}
         className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text text-2xl sm:text-3xl md:text-4xl font-semibold text-center"
       >
-        Eventos da Mozcyber
+        Eventos em destaque
       </motion.h2>
 
       <motion.div

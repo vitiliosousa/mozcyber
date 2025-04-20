@@ -1,34 +1,57 @@
-import { Calendar, MapPin, Clock } from "lucide-react";
-
+import { Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
 
 interface CardEventProps {
-    image: string;
-    title: string;
-    date: string;
-    location: string;
-    url: string;
-  }
-export default function CardEvent({ image, title, date, location, url }: CardEventProps) {
-  
-    return (
-    <div className="">
-      <Image src={image} alt="" className="rounded-2xl" />
-      <div className="mt-2 space-y-1">
-        <h1 className="text-xl">{title}</h1>
-        <div className="flex gap-2 items-center justify-start">
-          <Calendar className="text-zinc-400 size-4" />
-          <p className="text-sm bg-gradient-to-br from-zinc-200 to-zinc-400  text-transparent bg-clip-text">
+  image: string;
+  title: string;
+  date: string;
+  location: string;
+  url: string;
+}
+
+export default function CardEvent({
+  image,
+  title,
+  date,
+  location,
+  url,
+}: CardEventProps) {
+  return (
+    <div className="w-full bg-zinc-900 rounded-2xl overflow-hidden shadow-md transition hover:shadow-lg">
+      <div className="w-full h-48 sm:h-56 md:h-64 relative">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </div>
+      <div className="p-4 space-y-3">
+        <h1 className="text-lg sm:text-xl font-semibold">{title}</h1>
+
+        <div className="flex gap-2 items-center text-sm text-zinc-400">
+          <Calendar className="size-4" />
+          <span className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text">
             {date}
-          </p>
+          </span>
         </div>
-        <div className="flex gap-2 items-center justify-start">
-          <MapPin className="text-zinc-400 size-4" />
-          <p className="text-sm bg-gradient-to-br from-zinc-200 to-zinc-400  text-transparent bg-clip-text">
+
+        <div className="flex gap-2 items-center text-sm text-zinc-400">
+          <MapPin className="size-4" />
+          <span className="bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text">
             {location}
-          </p>
+          </span>
         </div>
-        <button className="bg-white text-black px-4 text-sm rounded-xl">Sobre</button>
+
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block w-full text-center mt-2 bg-white text-black px-4 py-2 text-sm rounded-xl hover:bg-zinc-300 transition"
+        >
+          Saber mais
+        </a>
       </div>
     </div>
   );
