@@ -37,8 +37,7 @@ export default function PopularEventsSection() {
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
             }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-          >
+            transition={{ duration: 0.6, delay: index * 0.2 }}>
             <CardEvent {...event} />
           </motion.div>
         ))}

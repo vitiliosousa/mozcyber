@@ -8,20 +8,20 @@ export const events = [
       title: "Night Hack: First edition",
       date: "5 de Abril a 10 de maio",
       location: "ISUTC",
-      url: "/events/night-hack",
+      url: "https://chat.whatsapp.com/LyJ75AMFdSLFox27fkFAHP ",
     },
     {
       image: meetthegoatevent,
       title: "Meet The Goats",
       date: "Periodicamente",
       location: "Online",
-      url: "/events/meet-the-goats",
+      url: "#",
     },
     {
       image: hackonwednesdayevent,
       title: "Hack On Wednesday",
       date: "Finalizado",
       location: "Online",
-      url: "/events/hack-on-wednesday",
+      url: "#",
     },
   ]

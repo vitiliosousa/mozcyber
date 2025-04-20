@@ -9,15 +9,16 @@ import { members } from "@/data/members";
 import { Instagram, Linkedin } from "lucide-react";
 import { StaticImageData } from "next/image";
 
-// Definição da interface para o MemberCardMobile
 interface MemberCardMobileProps {
   image: StaticImageData;
   name: string;
   description: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
-// Componente MemberCardMobile completo e corretamente definido
-function MemberCardMobile({ image, name, description }: MemberCardMobileProps) {
+
+function MemberCardMobile({ image, name, description, instagram, linkedin }: MemberCardMobileProps) {
   return (
     <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
       <div className="relative w-full h-full">
@@ -29,10 +30,10 @@ function MemberCardMobile({ image, name, description }: MemberCardMobileProps) {
               <p className="text-red-500 text-sm">{description}</p>
             </div>
             <div className="flex">
-              <a href="#" className="text-white hover:text-red-500 transition-colors duration-300 mr-2">
+              <a href={instagram} className="text-white hover:text-red-500 transition-colors duration-300 mr-2">
                 <Instagram size={16} />
               </a>
-              <a href="#" className="text-white hover:text-red-500 transition-colors duration-300">
+              <a href={linkedin} className="text-white hover:text-red-500 transition-colors duration-300">
                 <Linkedin size={16} />
               </a>
             </div>
@@ -68,7 +69,6 @@ export default function CoreTeamSection() {
         Conheça a equipa da MozCyber
       </motion.p>
 
-      {/* Layout para telas pequenas (mobile) */}
       <div className="md:hidden w-full">
         <motion.div
           initial={{ y: 40, opacity: 0 }}
@@ -83,12 +83,14 @@ export default function CoreTeamSection() {
               image={member.image}
               name={member.name}
               description={member.description}
+              instagram={member.instagram}
+              linkedin={member.linkedin}
             />
           ))}
         </motion.div>
       </div>
 
-      {/* Layout para telas maiores (desktop) - mantém o comportamento original */}
+      
       <div className="hidden md:block w-full">
         <motion.div
           initial={{ x: 100, opacity: 0 }}
@@ -106,6 +108,8 @@ export default function CoreTeamSection() {
               description={member.description}
               isActive={activeIndex === index}
               onClick={() => setActiveIndex(index)}
+              instagram={member.instagram}
+              linkedin={member.linkedin}
             />
           ))}
         </motion.div>
@@ -116,7 +120,7 @@ export default function CoreTeamSection() {
         alt="Fundo decorativo"
         width={1000}
         height={1000}
-        className="absolute bottom-0 opacity-20 pointer-events-none w-[300px] sm:w-[500px] md:w-[700px] lg:w-[1000px]"
+        className="absolute pointer-events-none"
       />
     </div>
   );

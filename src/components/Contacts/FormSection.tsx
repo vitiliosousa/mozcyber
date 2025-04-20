@@ -11,15 +11,8 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { socialmedia } from "@/data/socialmedia";
 
 export default function FormSection() {
   return (
@@ -54,7 +47,11 @@ export default function FormSection() {
           >
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-red-500" />
-              <span>+258 84 123 4567</span>
+              <span>+258 84 040 1358</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-red-500" />
+              <span>+258 84 373 0048</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-red-500" />
@@ -73,38 +70,19 @@ export default function FormSection() {
             viewport={{ once: true, amount: 0.2 }}
             className="flex items-center gap-4 pt-4"
           >
-            <a
-              href="https://linkedin.com/company/mozcyber"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-300 hover:text-blue-400 transition-colors"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a
-              href="https://github.com/mozcyber"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-300 hover:text-white transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://instagram.com/mozcyber"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-300 hover:text-pink-400 transition-colors"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com/company/mozcyber"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-300 hover:text-red-600 transition-colors"
-            >
-              <Youtube className="w-5 h-5" />
-            </a>
+            {socialmedia.map((social, index) => {
+              return (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-300 hover:text-red-500 transition-colors"
+                >
+                  <social.image />
+                </a>
+              );
+            })}
           </motion.div>
         </div>
 

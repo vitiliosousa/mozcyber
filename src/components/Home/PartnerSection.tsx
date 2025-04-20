@@ -1,10 +1,8 @@
 'use client'
 import Image from "next/image";
-import mozdevz from "@/assets/mozdevz.svg";
-import logo_cyber_labs from "@/assets/logo_cyber_labs.png";
-import empire_master_logo from "@/assets/empire-master-logo.png";
 import { motion } from "motion/react";
 import eventssection from "@/assets/eventssection.svg";
+import { partners } from "@/data/partners";
 
 export default function PartnerSection() {
   return (
@@ -38,23 +36,21 @@ export default function PartnerSection() {
         viewport={{ once: true, amount: 0.3 }}
         className="flex flex-wrap items-center justify-center gap-8 w-full max-w-6xl"
       >
-        <Image
-          src={mozdevz}
-          alt="Mozdevz"
-          className="w-24 sm:w-32 md:w-40 h-auto object-contain"
-        />
-        <Image
-          src={logo_cyber_labs}
-          alt="Cyber Labs"
-          className="w-24 sm:w-32 md:w-40 h-auto object-contain"
-        />
-        <Image
-          src={empire_master_logo}
-          alt="Empire Master"
-          className="w-24 sm:w-32 md:w-40 h-auto object-contain"
-        />
-      </motion.div>
-
+        {partners.map((partner, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <Image
+              src={partner.image}
+              alt={partner.title}
+              className="w-24 sm:w-32 md:w-40 h-auto object-contain"
+            />
+          </motion.div>
+        ))}
+        </motion.div>
       <Image
         src={eventssection}
         alt="Hero Section"

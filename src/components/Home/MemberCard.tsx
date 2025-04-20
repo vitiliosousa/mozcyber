@@ -8,18 +8,20 @@ interface MemberCardProps {
   image: StaticImageData;
   name: string;
   description: string;
+  instagram?: string;
+  linkedin?: string;
   isActive: boolean;
   onClick: () => void;
 }
 
-export default function MemberCard({ image, name, description, isActive, onClick }: MemberCardProps) {
+export default function MemberCard({ image, name, description, instagram, linkedin, isActive, onClick }: MemberCardProps) {
   return (
     <motion.div
       onMouseEnter={onClick}
       className={`relative cursor-pointer transition-all duration-500 overflow-hidden ${
         isActive ? "w-96" : "w-28"
       } h-96`}
-      animate={{ flexGrow: isActive ? 1 : 0 }}
+      animate={{ flexGrow: isActive ? 0 : 0 }}
     >
       <Image src={image} alt={name} fill className="object-cover" />
       <motion.div
@@ -33,10 +35,10 @@ export default function MemberCard({ image, name, description, isActive, onClick
           <p className="text-red-500">{description}</p>
         </div>
         <div className="flex">
-          <a href="#" className="text-white hover:text-red-500 transition-colors duration-300 mr-2">
+          <a href={instagram} target="_blank" className="text-white hover:text-red-500 transition-colors duration-300 mr-2">
             <Instagram size={30} />
           </a>
-          <a href="#" className="text-white hover:text-red-500 transition-colors duration-300">
+          <a href={linkedin} target="_blank" className="text-white hover:text-red-500 transition-colors duration-300">
             <Linkedin size={30} />
           </a>
         </div>
