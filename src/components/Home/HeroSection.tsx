@@ -2,8 +2,10 @@
 import Image from "next/image";
 import herosection from "@/assets/herosection.svg";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 
 export default function HeroSection() {
+  const router = useRouter()
   return (
     <div className="h-full flex items-center justify-center  w-full flex-col text-center space-y-4 mt-20">
       <motion.div
@@ -44,6 +46,7 @@ export default function HeroSection() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => window.location.href = "https://linktr.ee/mozcyber"}
           className="text-white bg-red px-8 py-2 rounded-3xl text-sm bg-red-500 hover:bg-red-600"
         >
           Junte se a comunidade
@@ -51,6 +54,7 @@ export default function HeroSection() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => router.push('/about-us')}
           className="text-black bg-red px-8 py-2 rounded-3xl text-sm bg-white hover:bg-zinc-100"
         >
           Saiba mais

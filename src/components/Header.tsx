@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import mozcyberlogo from "@/assets/mozcyberlogo.svg";
-import { motion } from "motion/react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,43 +16,18 @@ export default function Header() {
   ];
 
   return (
-    <motion.header
-      initial={{ y: -60, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full h-20 fixed bg-black border-b border-zinc-900 text-white flex items-center justify-between px-10 shadow-md z-50"
-    >
-      {/* Logo */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-      >
+    <header className="w-full h-20 fixed bg-black border-b border-zinc-900 text-white flex items-center justify-between px-10 shadow-md z-50">
+      <div>
         <Image
           src={mozcyberlogo}
           alt="MozCyber Logo"
           width={80}
           className="object-contain"
         />
-      </motion.div>
-
-      {/* Navegação */}
-      <motion.nav
-        className="flex items-center gap-10 text-sm"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.1,
-              delayChildren: 0.5,
-            },
-          },
-        }}
-      >
+      </div>
+      <nav className="flex items-center gap-10 text-sm">
         {links.map((item, idx) => (
-          <motion.a
+          <a
             key={idx}
             href={item.href}
             className={`transition-colors duration-300 ${
@@ -61,24 +35,17 @@ export default function Header() {
                 ? "text-red-500"
                 : "bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text hover:text-red-500"
             }`}
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 1, y: 0 },
-            }}
           >
             {item.label}
-          </motion.a>
+          </a>
         ))}
-      </motion.nav>
-
-      {/* Botão */}
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+      </nav>
+      <button
+        onClick={() => (window.location.href = "https://linktr.ee/mozcyber")}
         className="text-white px-8 py-2 rounded-3xl text-sm bg-red-500 hover:bg-red-600 transition-all"
       >
         Participar
-      </motion.button>
-    </motion.header>
+      </button>
+    </header>
   );
 }

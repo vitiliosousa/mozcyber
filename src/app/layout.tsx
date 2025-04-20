@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const poppins = Poppins({
-  weight: "500",
+  weight: "400",
   subsets: ["latin"],
 });
 

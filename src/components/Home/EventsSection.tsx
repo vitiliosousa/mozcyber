@@ -5,8 +5,11 @@ import Image from "next/image";
 import eventssection from "@/assets/eventssection.svg";
 import CardEvent from "@/components/Home/CardEvent";
 import { events } from "@/data/events";
+import { useRouter } from "next/navigation";
 
 export default function EventsSection() {
+  const router = useRouter();
+  
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center px-52 space-y-10 relative overflow-hidden">
       <motion.h2
@@ -39,12 +42,11 @@ export default function EventsSection() {
         ))}
       </motion.div>
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
         viewport={{ once: true, amount: 0.3 }}
+        onClick={() => router.push('/events')}
         className="text-white bg-red px-8 py-2 rounded-3xl text-sm bg-red-500 hover:bg-red-600"
       >
         Ver todos os eventos

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
+import { Instagram, Linkedin } from "lucide-react";
 
 interface MemberCardProps {
   image: StaticImageData;
@@ -11,7 +12,13 @@ interface MemberCardProps {
   onClick: () => void;
 }
 
-export default function MemberCard({ image, name, description, isActive, onClick }: MemberCardProps) {
+export default function MemberCard({
+  image,
+  name,
+  description,
+  isActive,
+  onClick,
+}: MemberCardProps) {
   return (
     <motion.div
       onMouseEnter={onClick}
@@ -25,10 +32,26 @@ export default function MemberCard({ image, name, description, isActive, onClick
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 30 }}
         transition={{ duration: 0.4 }}
-        className="absolute bottom-0 bg-black/80 text-white p-4 w-full"
+        className="flex items-center justify-between absolute bottom-0 bg-black/80 text-white p-4 w-full"
       >
-        <h3 className="text-xl">{name}</h3>
-        <p className="text-red-500">{description}</p>
+        <div className="">
+          <h3 className="text-xl">{name}</h3>
+          <p className="text-red-500">{description}</p>
+        </div>
+        <div className="flex">
+          <a
+            href="#"
+            className="text-white hover:text-red-500 transition-colors duration-300 mr-2"
+          >
+            <Instagram size={30} />
+          </a>
+          <a
+            href="#"
+            className="text-white hover:text-red-500 transition-colors duration-300"
+          >
+            <Linkedin size={30} />
+          </a>
+        </div>
       </motion.div>
     </motion.div>
   );
