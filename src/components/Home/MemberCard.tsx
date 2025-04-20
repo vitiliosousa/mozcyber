@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
 
@@ -12,13 +12,7 @@ interface MemberCardProps {
   onClick: () => void;
 }
 
-export default function MemberCard({
-  image,
-  name,
-  description,
-  isActive,
-  onClick,
-}: MemberCardProps) {
+export default function MemberCard({ image, name, description, isActive, onClick }: MemberCardProps) {
   return (
     <motion.div
       onMouseEnter={onClick}
@@ -39,16 +33,10 @@ export default function MemberCard({
           <p className="text-red-500">{description}</p>
         </div>
         <div className="flex">
-          <a
-            href="#"
-            className="text-white hover:text-red-500 transition-colors duration-300 mr-2"
-          >
+          <a href="#" className="text-white hover:text-red-500 transition-colors duration-300 mr-2">
             <Instagram size={30} />
           </a>
-          <a
-            href="#"
-            className="text-white hover:text-red-500 transition-colors duration-300"
-          >
+          <a href="#" className="text-white hover:text-red-500 transition-colors duration-300">
             <Linkedin size={30} />
           </a>
         </div>

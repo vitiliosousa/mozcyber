@@ -16,6 +16,7 @@ import {
   Github,
   Instagram,
   Linkedin,
+  Youtube
 } from "lucide-react"; 
 
 export default function FormSection() {
@@ -92,10 +93,17 @@ export default function FormSection() {
             >
               <Instagram className="w-5 h-5" />
             </a>
+            <a
+              href="https://linkedin.com/company/mozcyber"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-300 hover:text-red-600 transition-colors"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
             
           </motion.div>
         </div>
-
         <motion.form
         initial={{ x: 40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
