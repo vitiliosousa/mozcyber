@@ -46,7 +46,6 @@ export default function CardEvent({
 
         <a
           href={url}
-          target="_blank"
           rel="noopener noreferrer"
           className="inline-block w-full text-center mt-2 bg-white text-black px-4 py-2 text-sm rounded-xl hover:bg-zinc-300 transition"
         >

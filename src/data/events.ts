@@ -15,13 +15,13 @@ export const events = [
       title: "Meet The Goats",
       date: "Periodicamente",
       location: "Online",
-      url: "#",
+      url: "/events",
     },
     {
       image: hackonwednesdayevent,
       title: "Hack On Wednesday",
       date: "Finalizado",
       location: "Online",
-      url: "#",
+      url: "/events",
     },
   ]

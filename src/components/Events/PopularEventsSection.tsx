@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 import { events } from "@/data/events";
-import CardEvent from "./CardEvent";
+import CardEvent from "@/components/Home/CardEvent";
 
 export default function PopularEventsSection() {
   return (
