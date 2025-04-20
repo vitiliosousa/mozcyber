@@ -1,18 +1,29 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import mozcyberlogo from "@/assets/mozcyberlogo.svg";
 import { motion } from "motion/react";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const links = [
+    { label: "Inicio", href: "/" },
+    { label: "Sobre-Nós", href: "/about-us" },
+    { label: "Eventos", href: "/events" },
+    { label: "Recursos", href: "/resources" },
+    { label: "Contactos", href: "/contacts" },
+  ];
+
   return (
     <motion.header
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full h-20 fixed bg-black border-b-1 border-b-zinc-950 text-white flex items-center justify-between px-10  shadow-md z-50"
+      className="w-full h-20 fixed bg-black border-b border-zinc-900 text-white flex items-center justify-between px-10 shadow-md z-50"
     >
-      {/* Logo com leve animação */}
+      {/* Logo */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -26,7 +37,7 @@ export default function Header() {
         />
       </motion.div>
 
-      {/* Navegação com animação sequencial */}
+      {/* Navegação */}
       <motion.nav
         className="flex items-center gap-10 text-sm"
         initial="hidden"
@@ -41,22 +52,26 @@ export default function Header() {
           },
         }}
       >
-        {["Inicio", "Sobre-Nós", "Eventos", "Recursos", "Contactos"].map((item, idx) => (
+        {links.map((item, idx) => (
           <motion.a
             key={idx}
-            href={["/", "/about-us", "/events", "/resources", "/contacts"][idx]}
-            className="hover:text-red-500 ease-in-out transition-colors duration-300 bg-gradient-to-br from-zinc-200 to-zinc-400  text-transparent bg-clip-text"
+            href={item.href}
+            className={`transition-colors duration-300 ${
+              pathname === item.href
+                ? "text-red-500"
+                : "bg-gradient-to-br from-zinc-200 to-zinc-400 text-transparent bg-clip-text hover:text-red-500"
+            }`}
             variants={{
               hidden: { opacity: 0, y: 10 },
               visible: { opacity: 1, y: 0 },
             }}
           >
-            {item}
+            {item.label}
           </motion.a>
         ))}
       </motion.nav>
 
-      {/* Botão com interação */}
+      {/* Botão */}
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
