@@ -1,8 +1,9 @@
 import walter from "@/assets/walter.jpeg";
 import fabio from "@/assets/fabio.jpeg";
 import vitilio from "@/assets/vitilio.jpeg";
-import muthimbane from "@/assets/muthimbane.jpeg";
+import muthimbane from "@/assets/muthimbane.png";
 import patricio from "@/assets/patricio.jpeg";
+import elton from "@/assets/elton.png";
 
 
 export const members = [
@@ -30,9 +31,9 @@ export const members = [
     {
       name: "Elton Nhaca",
       description: "Tech Specialist",
-      image: walter,
-      instagram: "https://www.instagram.com/waltercumbucane/",
-      linkedin: "https://www.linkedin"
+      image: elton,
+      instagram: "https://www.instagram.com/eltonsolvencio/",
+      linkedin: "null"
     },
     {
         name: "Muthimbane Langa",

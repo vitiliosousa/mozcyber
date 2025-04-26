@@ -36,10 +36,10 @@ export default function MemberCard({ image, name, description, instagram, linked
         </div>
         <div className="flex">
           <a href={instagram} target="_blank" className="text-white hover:text-red-500 transition-colors duration-300 mr-2">
-            <Instagram size={30} />
+            <Instagram size={20} />
           </a>
           <a href={linkedin} target="_blank" className="text-white hover:text-red-500 transition-colors duration-300">
-            <Linkedin size={30} />
+            <Linkedin size={20} />
           </a>
         </div>
       </motion.div>

@@ -3,12 +3,14 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { StaticImageData } from "next/image";
+import Image from "next/image";
 
 type Testimonial = {
   quote: string;
   name: string;
   designation: string;
-  src: string;
+  src: StaticImageData;
 };
 
 export const AnimatedTestimonials = ({
@@ -22,7 +24,7 @@ export const AnimatedTestimonials = ({
   const [rotations, setRotations] = useState<number[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Inicializar rotações apenas no cliente
+ 
   useEffect(() => {
     setIsMounted(true);
     setRotations(
@@ -57,12 +59,12 @@ export const AnimatedTestimonials = ({
           <div className="relative h-64 w-full sm:h-72 md:h-80">
             {testimonials.map((testimonial, index) => (
               <div
-                key={testimonial.src}
+                key={testimonial.name}
                 className={`absolute inset-0 origin-bottom transition-opacity duration-300 ${
                   index === active ? "opacity-100" : "opacity-0"
                 }`}
               >
-                <img
+                <Image
                   src={testimonial.src}
                   alt={testimonial.name}
                   width={400}
@@ -119,7 +121,7 @@ export const AnimatedTestimonials = ({
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={testimonial.src}
+                  key={testimonial.name}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -148,7 +150,7 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <img
+                  <Image
                     src={testimonial.src}
                     alt={testimonial.name}
                     width={400}

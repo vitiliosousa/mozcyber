@@ -70,7 +70,7 @@ export default function HeroSection() {
         alt="Hero Section"
         width={1000}
         height={1000}
-        className="absolute  pointer-events-none "
+        className="absolute  pointer-events-none -z-0"
       />
     </div>
   );

@@ -56,7 +56,7 @@ export default function EventsSection() {
         alt="Fundo decorativo"
         width={1000}
         height={1000}
-        className="absolute pointer-events-none "
+        className="absolute pointer-events-none"
       />
     </div>
   );
